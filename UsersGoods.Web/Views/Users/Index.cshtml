@@ -1,0 +1,48 @@
+﻿@using UsersGoods.Web.Resources
+@using UsersGoods.Web.ViewModel.Users
+@model IndexViewModel
+
+@{
+    ViewBag.Title = StringResource.MenuUsers;
+}
+<script>
+    $(function () {
+        var search = function () {
+            var url = '@Request.Url.GetLeftPart(UriPartial.Path)?search=' + encodeURIComponent($('#search').val());
+            window.location = url;
+        };
+
+        $('#searchButton').click(search);
+        $('#search').on('keypress', function (e) {
+            if (e.which == 13) {
+                search();
+            }
+        });
+    });
+</script>
+<div class="row">
+    <div class="col-md-12">
+        <input id="search" type="text" value="@Model.SearchString">
+        <a class="btn btn-default" id="searchButton">@StringResource.ActionSearch</a>
+    </div>    
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table>
+            <tr>
+                <th>@StringResource.UserName</th>
+                <th>@StringResource.UserTotalAmount (@StringResource.RUB)</th>
+            </tr>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        <a target="_blank" href="@Url.Action("Card", "Users", new {id = item.Id })">@item.FirstName @item.SecondName</a>
+                    </td>
+                    <td>@item.TotalAmount</td>
+                </tr>
+            }
+        </table>
+    </div>    
+</div>

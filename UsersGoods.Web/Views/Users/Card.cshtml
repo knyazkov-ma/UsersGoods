@@ -1,0 +1,62 @@
+﻿@using UsersGoods.Web.Resources
+@using UsersGoods.Web.ViewModel.Users
+@model CardViewModel
+@{
+    ViewBag.Title = StringResource.UserCardGoods;
+}
+
+<script>
+    $(function () {
+        var search = function () {
+            var url = '@Request.Url.GetLeftPart(UriPartial.Path)/@Model.User.Id?amountMin=' + encodeURIComponent($('#amountMin').val()) + '&amountMax=' + encodeURIComponent($('#amountMax').val());
+            window.location = url;
+        };
+
+        $('#searchButton').click(search);
+        $('#amountMin').on('keypress', function (e) {
+            if (e.which == 13) {
+                search();
+            }
+        });
+        $('#amountMax').on('keypress', function (e) {
+            if (e.which == 13) {
+                search();
+            }
+        });
+    });
+</script>
+<div class="row">
+    <div class="col-md-12">
+        @StringResource.GoodAmountFilter 
+        @StringResource.From<input id="amountMin" type="text" value="@Model.AmountMin">
+        @StringResource.To<input id="amountMax" type="text" value="@Model.AmountMax">
+        <a class="btn btn-default" id="searchButton">@StringResource.ActionOK</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div>@Model.User.FirstName @Model.User.SecondName</div>
+    </div>
+    <div class="col-md-6">
+        <div>@Model.User.TotalAmount (@StringResource.RUB)</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table>
+            <tr>
+                <th>@StringResource.GoodName</th>
+                <th>@StringResource.GoodAmount (@StringResource.RUB)</th>
+            </tr>
+            @foreach (var good in Model.Goods)
+            {
+                <tr>
+                    <td>@good.Name</td>
+                    <td>@good.Amount</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
