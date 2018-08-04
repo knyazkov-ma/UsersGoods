@@ -1,50 +1,41 @@
-﻿using System;
+﻿using AutoMapper;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
-using UsersGoods.Web.Resources;
+using UsersGoods.Web.Services.Interface;
 using UsersGoods.Web.ViewModel.Users;
 
 namespace UsersGoods.Web.Controllers
 {
     public class UsersController : Controller
     {
-        public ActionResult Index(string search = null)
+        private readonly IUserService _userService;
+        
+        public UsersController(IUserService userService)
         {
-            var list = new List<UserViewModel>
-            {
-                new UserViewModel { FirstName = "Иванов", SecondName = "Иван",    TotalAmount = 1024 },
-                new UserViewModel { FirstName = "Петров", SecondName = "Пётр",   TotalAmount = 45.87m },
-                new UserViewModel { FirstName = "Семёнов", SecondName = "Семён",   TotalAmount = 401.02m }
-            };
-
-            var model = new IndexViewModel
-            {
-                SearchString = search,
-                Items = list
-            };
-            
-
-            return View(model);
+            _userService = userService;
         }
 
-        public ActionResult Card(long id, decimal? amountMin = null, decimal? amountMax = null)
+		private async Task<IndexViewModel> getModel(string search = null)
+		{
+			var list = Mapper.Map<IEnumerable<UserViewModel>>(await _userService.GetUsers(search));
+			var model = new IndexViewModel
+			{
+				SearchString = search,
+				Items = list
+			};
+			return model;
+		}
+
+		public async Task<ActionResult> Index(string search = null)
         {
-            var model = new CardViewModel
-            {
-                User = new UserViewModel { FirstName = "Иванов", SecondName = "Иван", TotalAmount = 1024 },
-                Goods = new List<GoodViewModel>
-                {
-                    new GoodViewModel { Name = "Пианино", Amount = 458.04m },
-                    new GoodViewModel { Name = "Скрипка", Amount = 1000.45m },
-                    new GoodViewModel { Name = "Мотоцикл", Amount = 5202 },
-                    new GoodViewModel { Name = "Клюшка", Amount = 23.01m }
-                },
-                AmountMax = amountMax,
-                AmountMin = amountMin
-            };
-            return View(model);
+            return View(await getModel(search));
         }
+
+		public async Task<ActionResult> Reset()
+		{
+			return View(await getModel());
+		}
+		
     }
 }

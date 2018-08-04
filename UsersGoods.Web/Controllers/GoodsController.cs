@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using AutoMapper;
+using System.Threading.Tasks;
 using System.Web.Mvc;
-using UsersGoods.Web.Resources;
+using UsersGoods.Web.Services.Interface;
 
 namespace UsersGoods.Web.Controllers
 {
     public class GoodsController : Controller
     {
-        public ActionResult Index()
+        private readonly IGoodService _goodService;
+
+        public GoodsController(IGoodService goodService)
         {
-            return View();
+            _goodService = goodService;
+        }
+
+        public async Task<ActionResult> Index()
+        {
+            var topGoodDto = await _goodService.GetTopGood();
+            var model = Mapper.Map<ViewModel.Goods.TopGoodViewModel>(topGoodDto);
+            return View(model);
         }
         
     }

@@ -1,6 +1,6 @@
-﻿namespace UsersGoods.Web.ViewModel.Users
+﻿namespace UsersGoods.Web.Services.DTO
 {
-    public class UserViewModel
+    public class UserDTO
     {
         public long Id { get; set; }
         public string FirstName { get; set; }

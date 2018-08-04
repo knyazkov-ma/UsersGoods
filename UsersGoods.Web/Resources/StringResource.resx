@@ -135,11 +135,17 @@
   <data name="GoodName" xml:space="preserve">
     <value>Наименование товара</value>
   </data>
+  <data name="GoodTop" xml:space="preserve">
+    <value>Наиболее покупаемый товар</value>
+  </data>
   <data name="MenuGoods" xml:space="preserve">
     <value>Товары</value>
   </data>
   <data name="MenuUsers" xml:space="preserve">
     <value>Пользователи</value>
+  </data>
+  <data name="PurchaseCount" xml:space="preserve">
+    <value>Количество покупок</value>
   </data>
   <data name="RUB" xml:space="preserve">
     <value>руб.</value>

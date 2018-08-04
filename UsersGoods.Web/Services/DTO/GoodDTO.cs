@@ -1,6 +1,6 @@
-﻿namespace UsersGoods.Web.ViewModel.Users
+﻿namespace UsersGoods.Web.Services.DTO
 {
-    public class GoodViewModel
+    public class GoodDTO
     {
         public decimal Amount { get; set; }
         public string Name { get; set; }

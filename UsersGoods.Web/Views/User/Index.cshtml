@@ -8,7 +8,7 @@
 <script>
     $(function () {
         var search = function () {
-            var url = '@Request.Url.GetLeftPart(UriPartial.Path)/@Model.User.Id?amountMin=' + encodeURIComponent($('#amountMin').val()) + '&amountMax=' + encodeURIComponent($('#amountMax').val());
+            var url = '@Request.Url.GetLeftPart(UriPartial.Path)?amountMin=' + encodeURIComponent($('#amountMin').val()) + '&amountMax=' + encodeURIComponent($('#amountMax').val());
             window.location = url;
         };
 
@@ -28,8 +28,8 @@
 <div class="row">
     <div class="col-md-12">
         @StringResource.GoodAmountFilter 
-        @StringResource.From<input id="amountMin" type="text" value="@Model.AmountMin">
-        @StringResource.To<input id="amountMax" type="text" value="@Model.AmountMax">
+        @StringResource.From<input id="amountMin" type="number" value="@Model.AmountMin">
+        @StringResource.To<input id="amountMax" type="number" value="@Model.AmountMax">
         <a class="btn btn-default" id="searchButton">@StringResource.ActionOK</a>
     </div>
 </div>
