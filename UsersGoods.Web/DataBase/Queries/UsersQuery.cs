@@ -25,7 +25,7 @@ namespace UsersGoods.Web.DataBase.Queries
 
 		private QueryWhere GetQueryWhere(UsersQueryParam param)
 		{
-			IDictionary<string, object> nativeParams = new Dictionary<string, object>();
+			var nativeParams = new Dictionary<string, object>();
 			string where = null;
 			if (!String.IsNullOrWhiteSpace(param.Part1) && !String.IsNullOrWhiteSpace(param.Part2))
 			{

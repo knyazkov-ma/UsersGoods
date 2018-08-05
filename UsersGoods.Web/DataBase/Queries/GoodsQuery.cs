@@ -25,7 +25,7 @@ namespace UsersGoods.Web.DataBase.Queries
 		private QueryWhere GetQueryWhere(long userId, GoodsQueryParam param)
 		{
 			string where = "";
-			IDictionary<string, object> nativeParams = new Dictionary<string, object>() { { "userId", userId } };
+			var nativeParams = new Dictionary<string, object>() { { "userId", userId } };
 			if (param.AmountMin.HasValue)
 			{
 				where += " and g.Amount >= CAST(@amountMin as money)";
