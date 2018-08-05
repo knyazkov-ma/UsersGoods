@@ -29,11 +29,6 @@ namespace UsersGoods.Web.DataBase.Migrations.Core
 			}
 		}
 
-
-
-
-
-
 		/// <summary>
 		/// Configure the dependency injection services
 		/// </sumamry>
@@ -63,8 +58,7 @@ namespace UsersGoods.Web.DataBase.Migrations.Core
 			// Instantiate the runner
 			var runner = serviceProvider.GetRequiredService<FluentMigrator.Runner.IMigrationRunner>();
 			var asm = typeof(InitialDeployment).Assembly;
-			foreach (var n in asm.GetManifestResourceNames())
-				Debug.WriteLine(n);
+			
 			// Execute the migrations
 			runner.MigrateUp();
 		}
