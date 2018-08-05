@@ -1,8 +1,18 @@
 ﻿namespace UsersGoods.Web.Services.DTO
 {
-    public class GoodDTO
+	/// <summary>
+	/// Товар
+	/// </summary>
+	public class GoodDTO
     {
-        public decimal Amount { get; set; }
-        public string Name { get; set; }
-    }
+		/// <summary>
+		/// Наименование
+		/// </summary>
+		public string Name { get; set; }
+
+		/// <summary>
+		/// Стоимость
+		/// </summary>
+		public decimal Amount { get; set; }
+	}
 }

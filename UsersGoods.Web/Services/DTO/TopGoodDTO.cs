@@ -1,8 +1,18 @@
 ﻿namespace UsersGoods.Web.Services.DTO
 {
-    public class TopGoodDTO
+	/// <summary>
+	/// Наиболее часто покупаемый товар
+	/// </summary>
+	public class TopGoodDTO
     {
-        public string Name { get; set; }
-        public int PurchaseCount { get; set; }
+		/// <summary>
+		/// Наименование
+		/// </summary>
+		public string Name { get; set; }
+
+		/// <summary>
+		/// Количество покупок
+		/// </summary>
+		public int PurchaseCount { get; set; }
     }
 }

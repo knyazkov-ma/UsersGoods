@@ -1,10 +1,28 @@
 ﻿namespace UsersGoods.Web.Services.DTO
 {
-    public class UserDTO
+	/// <summary>
+	/// Пользователь
+	/// </summary>
+	public class UserDTO
     {
-        public long Id { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public decimal TotalAmount { get; set; }
+		/// <summary>
+		/// PK
+		/// </summary>
+		public long Id { get; set; }
+
+		/// <summary>
+		/// Имя
+		/// </summary>
+		public string FirstName { get; set; }
+
+		/// <summary>
+		/// Фамилия
+		/// </summary>
+		public string SecondName { get; set; }
+
+		/// <summary>
+		/// Всего куплено товаров на сумму
+		/// </summary>
+		public decimal TotalAmount { get; set; }
     }
 }
