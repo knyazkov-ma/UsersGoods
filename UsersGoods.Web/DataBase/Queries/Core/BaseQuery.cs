@@ -26,4 +26,5 @@ namespace UsersGoods.Web.DataBase.Queries.Core
 
 		public abstract Task<TDto> Get(TParam param);
 	}
+	
 }

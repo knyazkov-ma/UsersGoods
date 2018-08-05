@@ -9,18 +9,13 @@ namespace UsersGoods.Web.Services
 {
 	public class UserService: IUserService
     {
-		private readonly IQuery<IEnumerable<UserDTO>, UsersQueryParam> _usersQuery;
-		private readonly IQuery<int, UsersQueryParam> _usersCountQuery;
-		private readonly IQuery<int> _usersTotalCountQuery;
+		private readonly IQueryWithCount<IEnumerable<UserDTO>, UsersQueryParam> _usersQuery;
 		private readonly IQuery<UserDTO, long> _userQuery;
-		public UserService(IQuery<IEnumerable<UserDTO>, UsersQueryParam> usersQuery,
-			IQuery<int, UsersQueryParam> usersCountQuery,
-			IQuery<int> usersTotalCountQuery,
+
+		public UserService(IQueryWithCount<IEnumerable<UserDTO>, UsersQueryParam> usersQuery,
 			IQuery<UserDTO, long> userQuery)
         {
 			_usersQuery = usersQuery;
-			_usersCountQuery = usersCountQuery;
-			_usersTotalCountQuery = usersTotalCountQuery;
 			_userQuery = userQuery;
 		}
 
@@ -60,11 +55,11 @@ namespace UsersGoods.Web.Services
 		{
 			var parts = GetPartsFromString(searchString);
 
-			return await _usersCountQuery.Get(new UsersQueryParam { Part1 = parts[0], Part2 = parts[1] });
+			return await _usersQuery.GetCount(new UsersQueryParam { Part1 = parts[0], Part2 = parts[1] });
 		}
 		public async Task<int> GetTotalUsersCount()
 		{
-			return await _usersTotalCountQuery.Get();
+			return await _usersQuery.GetTotalCount();
 		}
 
 		public async Task<UserDTO> GetUser(long userId)

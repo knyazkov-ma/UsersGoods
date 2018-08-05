@@ -10,34 +10,28 @@ namespace UsersGoods.Web.Services
 	public class GoodService : IGoodService
     {
 		
-		private readonly IQuery<IEnumerable<GoodDTO>, GoodsQueryParam> _goodsQuery;
-		private readonly IQuery<int, GoodsQueryParam> _goodsCountQuery;
-		private readonly IQuery<int, long> _goodsTotalCountQuery;
+		private readonly IQueryWithCount<IEnumerable<GoodDTO>, long, GoodsQueryParam> _goodsQuery;
 		private readonly IQuery<TopGoodDTO> _topGoodQuery;
 
-		public GoodService(IQuery<IEnumerable<GoodDTO>, GoodsQueryParam> goodsQuery,
-			IQuery<int, GoodsQueryParam> goodsCountQuery,
-			IQuery<int, long> goodsTotalCountQuery,
+		public GoodService(IQueryWithCount<IEnumerable<GoodDTO>, long, GoodsQueryParam> goodsQuery,
 			IQuery<TopGoodDTO> topGoodQuery)
         {
 			_goodsQuery = goodsQuery;
-			_goodsCountQuery = goodsCountQuery;
-			_goodsTotalCountQuery = goodsTotalCountQuery;
 			_topGoodQuery = topGoodQuery;
 		}
 
         public async Task<IEnumerable<GoodDTO>> GetGoods(long userId, decimal? amountMin = null, decimal? amountMax = null)
         {
-            return await _goodsQuery.Get(new GoodsQueryParam { UserId = userId, AmountMin = amountMin, AmountMax = amountMax });
+            return await _goodsQuery.Get(userId, new GoodsQueryParam { AmountMin = amountMin, AmountMax = amountMax });
         }
 
 		public async Task<int> GetGoodsCount(long userId, decimal? amountMin = null, decimal? amountMax = null)
 		{
-			return await _goodsCountQuery.Get(new GoodsQueryParam { UserId = userId, AmountMin = amountMin, AmountMax = amountMax });
+			return await _goodsQuery.GetCount(userId, new GoodsQueryParam { AmountMin = amountMin, AmountMax = amountMax });
 		}
 		public async Task<int> GetTotalGoodsCount(long userId)
 		{
-			return await _goodsTotalCountQuery.Get(userId);
+			return await _goodsQuery.GetTotalCount(userId);
 		}
 
 		public async Task<TopGoodDTO> GetTopGood()

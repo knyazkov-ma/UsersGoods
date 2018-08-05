@@ -10,6 +10,6 @@ namespace UsersGoods.Web.DataBase.Queries.Core
 	public interface IQuery<TDto, TParam>
 	{
 		Task<TDto> Get(TParam param);
-	}
-	
+	}	
+
 }
