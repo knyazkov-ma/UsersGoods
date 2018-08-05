@@ -32,7 +32,7 @@ namespace UsersGoods.Web.DataBase.Queries
 			string where = null;
 			if (!String.IsNullOrWhiteSpace(param.Part1) && !String.IsNullOrWhiteSpace(param.Part2))
 			{
-				where = "where upper(u.FirstName) like @part1 and upper(u.SecondName) like @part2";
+				where = "where upper(u.FirstName) like CONCAT(@part1,'%') and upper(u.SecondName) like CONCAT(@part2,'%')";
 				sql = String.Format(sql, where);
 				return await _connection.QueryAsync<UserDTO>(sql,
 					new
@@ -43,7 +43,7 @@ namespace UsersGoods.Web.DataBase.Queries
 			}
 			else if (!String.IsNullOrWhiteSpace(param.Part1))
 			{
-				where = "where upper(u.FirstName) like @part1 or upper(u.SecondName) like @part1";
+				where = "where upper(u.FirstName) like CONCAT(@part1,'%') or upper(u.SecondName) like CONCAT(@part1,'%')";
 				sql = String.Format(sql, where);
 				return await _connection.QueryAsync<UserDTO>(sql,
 					new

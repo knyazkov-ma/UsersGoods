@@ -1,13 +1,8 @@
-﻿using AutoMapper;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using UsersGoods.Web.Services.Interface;
-using UsersGoods.Web.ViewModel.Users;
+﻿using System.Web.Mvc;
 
 namespace UsersGoods.Web.Controllers
 {
-    public class ErrorHandlerController : Controller
+	public class ErrorHandlerController : Controller
     {
         public ActionResult Index()
         {

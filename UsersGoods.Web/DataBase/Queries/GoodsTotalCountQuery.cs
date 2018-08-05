@@ -1,9 +1,6 @@
 ﻿using Dapper;
 using System.Data;
 using System.Threading.Tasks;
-using UsersGoods.Web.Services.DTO;
-using System.Collections.Generic;
-using System;
 using UsersGoods.Web.DataBase.Queries.Core;
 
 namespace UsersGoods.Web.DataBase.Queries

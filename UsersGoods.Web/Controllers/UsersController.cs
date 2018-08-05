@@ -7,7 +7,7 @@ using UsersGoods.Web.ViewModel.Users;
 
 namespace UsersGoods.Web.Controllers
 {
-    public class UsersController : Controller
+	public class UsersController : Controller
     {
         private readonly IUserService _userService;
         
@@ -24,8 +24,9 @@ namespace UsersGoods.Web.Controllers
 				SearchString = search,
 				Items = list,
 				ItemsCount = await _userService.GetUsersCount(search),
-				ItemsTotalCount = await _userService.GetTotalUsersCount()
+				ItemsTotalCount = await _userService.GetTotalUsersCount()				
 			};
+
 			return model;
 		}
 

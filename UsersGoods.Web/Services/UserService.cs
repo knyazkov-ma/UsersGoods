@@ -40,11 +40,17 @@ namespace UsersGoods.Web.Services
 				}
 			}
 
+			if (result[0] != null && result[0].Length < 3)
+				result[0] = null;
+			if (result[1] != null && result[1].Length < 3)
+				result[1] = null;
+
 			return result;
 		}
 
-        public async Task<IEnumerable<UserDTO>> GetUsers(string searchString = null)
+		public async Task<IEnumerable<UserDTO>> GetUsers(string searchString)
         {
+			
 			var parts = GetPartsFromString(searchString);
 
 			return await _usersQuery.Get(new UsersQueryParam { Part1 = parts[0], Part2 = parts[1] });

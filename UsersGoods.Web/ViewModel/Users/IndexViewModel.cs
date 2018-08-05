@@ -9,6 +9,7 @@ namespace UsersGoods.Web.ViewModel.Users
 
 		public int ItemsTotalCount { get; set; }
 		public int ItemsCount { get; set; }
+
 		public bool IsFiltered
 		{
 			get
