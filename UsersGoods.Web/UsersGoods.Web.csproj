@@ -258,8 +258,7 @@
     <Compile Include="DataBase\Queries\Core\BaseQueryWithCount.cs" />
     <Compile Include="DataBase\Queries\Core\IQueryWithCount.cs" />
     <Compile Include="DataBase\Queries\Core\IQuery.cs" />
-    <Compile Include="DataBase\Queries\GoodsQueryParam.cs" />
-    <Compile Include="DataBase\Queries\UsersQueryParam.cs" />
+    <Compile Include="DataBase\Queries\QueryWhere.cs" />
     <Compile Include="DataBase\Queries\GoodsQuery.cs" />
     <Compile Include="DataBase\Queries\UserQuery.cs" />
     <Compile Include="DataBase\Queries\TopGoodQuery.cs" />
