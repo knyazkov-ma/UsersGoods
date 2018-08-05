@@ -17,9 +17,6 @@ namespace UsersGoods.Web.DataBase
 			  return instance;
 		  });
 
-		/// <summary>
-		/// Configured Unity Container.
-		/// </summary>
 		public static DbConnectionFactory Instatce => instance.Value;
 		#endregion
 
