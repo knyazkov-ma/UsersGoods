@@ -19,9 +19,13 @@ namespace UsersGoods.Web.Controllers
 
 		public async Task<ActionResult> Index(long id, decimal? amountMin = null, decimal? amountMax = null)
         {
-            var model = new CardViewModel
+			var user = await _userService.GetUser(id);
+			if (user == null)
+				return View("NotFound");
+
+			var model = new CardViewModel
             {
-                User = Mapper.Map<UserViewModel>(await _userService.GetUser(id)),
+                User = Mapper.Map<UserViewModel>(user),
                 Goods = Mapper.Map<IEnumerable<GoodViewModel>>(await _goodService.GetGoods(id, amountMin, amountMax)),
                 AmountMax = amountMax,
                 AmountMin = amountMin,

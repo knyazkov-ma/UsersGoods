@@ -64,14 +64,14 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-		<table>
+		<table class="item-table">
 			<tr>
 				<th>@StringResource.GoodName</th>
 				<th>@StringResource.GoodAmount (@StringResource.RUB)</th>
 			</tr>
 			@if (Model.Goods == null || !Model.Goods.Any())
 			{
-				<tr>
+				<tr class="notfound-tr">
 					<td colspan="2">@StringResource.NotFound</td>					
 				</tr>
 			}

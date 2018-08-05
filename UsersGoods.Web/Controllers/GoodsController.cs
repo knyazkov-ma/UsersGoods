@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using UsersGoods.Web.Services.DTO;
 using UsersGoods.Web.Services.Interface;
 
 namespace UsersGoods.Web.Controllers
@@ -17,7 +18,10 @@ namespace UsersGoods.Web.Controllers
         public async Task<ActionResult> Index()
         {
             var topGoodDto = await _goodService.GetTopGood();
-            var model = Mapper.Map<ViewModel.Goods.TopGoodViewModel>(topGoodDto);
+			if (topGoodDto == null)
+				topGoodDto = new TopGoodDTO();
+
+			var model = Mapper.Map<ViewModel.Goods.TopGoodViewModel>(topGoodDto);
             return View(model);
         }
         

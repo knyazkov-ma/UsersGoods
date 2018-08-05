@@ -250,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ErrorHandlerController.cs" />
     <Compile Include="DataBase\DbConnectionFactory.cs" />
     <Compile Include="DataBase\Migrations\Core\IMigrationRunner.cs" />
     <Compile Include="DataBase\Migrations\0001\InitialDeployment.cs" />
@@ -329,11 +330,13 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\ErrorHandler\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Goods\Index.cshtml" />
+    <Content Include="Views\ErrorHandler\NotFound.cshtml" />
+    <Content Include="Views\User\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

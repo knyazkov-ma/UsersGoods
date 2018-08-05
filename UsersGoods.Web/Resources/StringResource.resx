@@ -129,6 +129,9 @@
   <data name="CountRecords" xml:space="preserve">
     <value>Количество записей</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
   <data name="From" xml:space="preserve">
     <value>от</value>
   </data>
@@ -156,6 +159,9 @@
   <data name="Of" xml:space="preserve">
     <value>из</value>
   </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>Страница не найдена</value>
+  </data>
   <data name="PositionShort" xml:space="preserve">
     <value>поз.</value>
   </data>
@@ -164,6 +170,9 @@
   </data>
   <data name="PurchaseTotalAmount" xml:space="preserve">
     <value>Всего куплено на сумму</value>
+  </data>
+  <data name="RequestError" xml:space="preserve">
+    <value>При обработке запроса произошла ошибка</value>
   </data>
   <data name="RUB" xml:space="preserve">
     <value>руб.</value>
@@ -179,6 +188,9 @@
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Имя</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Пользователь не найден</value>
   </data>
   <data name="UserTotalAmount" xml:space="preserve">
     <value>Купил на сумму</value>

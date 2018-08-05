@@ -23,7 +23,7 @@ namespace UsersGoods.Web.DataBase.Queries
 							  inner join Goods g on t.GoodId = g.Id
 							order by t.PurchaseCount desc
 							limit 1";
-			return await _connection.QueryFirstAsync<TopGoodDTO>(sql);			
+			return await _connection.QueryFirstOrDefaultAsync<TopGoodDTO>(sql);			
 		}
 	}
 }

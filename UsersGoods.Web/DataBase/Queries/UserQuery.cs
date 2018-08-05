@@ -25,7 +25,7 @@ namespace UsersGoods.Web.DataBase.Queries
 							 left join Purchases p on p.UserId = u.Id
                             where u.Id = @userId
                             group by u.Id, u.FirstName, u.SecondName";
-			return await _connection.QueryFirstAsync<UserDTO>(sql, new { userId });
+			return await _connection.QueryFirstOrDefaultAsync<UserDTO>(sql, new { userId });
 
 		}
 	}

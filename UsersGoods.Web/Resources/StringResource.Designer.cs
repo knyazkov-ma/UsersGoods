@@ -97,6 +97,15 @@ namespace UsersGoods.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ошибка.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to от.
         /// </summary>
         public static string From {
@@ -178,6 +187,15 @@ namespace UsersGoods.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Страница не найдена.
+        /// </summary>
+        public static string PageNotFound {
+            get {
+                return ResourceManager.GetString("PageNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to поз..
         /// </summary>
         public static string PositionShort {
@@ -201,6 +219,15 @@ namespace UsersGoods.Web.Resources {
         public static string PurchaseTotalAmount {
             get {
                 return ResourceManager.GetString("PurchaseTotalAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to При обработке запроса произошла ошибка.
+        /// </summary>
+        public static string RequestError {
+            get {
+                return ResourceManager.GetString("RequestError", resourceCulture);
             }
         }
         
@@ -246,6 +273,15 @@ namespace UsersGoods.Web.Resources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пользователь не найден.
+        /// </summary>
+        public static string UserNotFound {
+            get {
+                return ResourceManager.GetString("UserNotFound", resourceCulture);
             }
         }
         
