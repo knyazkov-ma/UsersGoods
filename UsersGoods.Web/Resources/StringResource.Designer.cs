@@ -19,7 +19,7 @@ namespace UsersGoods.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class StringResource {
@@ -61,11 +61,20 @@ namespace UsersGoods.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OK.
+        ///   Looks up a localized string similar to Отфильтровать.
         /// </summary>
-        public static string ActionOK {
+        public static string ActionFilter {
             get {
-                return ResourceManager.GetString("ActionOK", resourceCulture);
+                return ResourceManager.GetString("ActionFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сбросить фильтр.
+        /// </summary>
+        public static string ActionResetFilter {
+            get {
+                return ResourceManager.GetString("ActionResetFilter", resourceCulture);
             }
         }
         
@@ -75,6 +84,15 @@ namespace UsersGoods.Web.Resources {
         public static string ActionSearch {
             get {
                 return ResourceManager.GetString("ActionSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество записей.
+        /// </summary>
+        public static string CountRecords {
+            get {
+                return ResourceManager.GetString("CountRecords", resourceCulture);
             }
         }
         
@@ -142,11 +160,47 @@ namespace UsersGoods.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Записей не найдено.
+        /// </summary>
+        public static string NotFound {
+            get {
+                return ResourceManager.GetString("NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to из.
+        /// </summary>
+        public static string Of {
+            get {
+                return ResourceManager.GetString("Of", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to поз..
+        /// </summary>
+        public static string PositionShort {
+            get {
+                return ResourceManager.GetString("PositionShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Количество покупок.
         /// </summary>
         public static string PurchaseCount {
             get {
                 return ResourceManager.GetString("PurchaseCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Всего куплено на сумму.
+        /// </summary>
+        public static string PurchaseTotalAmount {
+            get {
+                return ResourceManager.GetString("PurchaseTotalAmount", resourceCulture);
             }
         }
         
@@ -174,6 +228,15 @@ namespace UsersGoods.Web.Resources {
         public static string UserCardGoods {
             get {
                 return ResourceManager.GetString("UserCardGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Товары, купленные пользователем.
+        /// </summary>
+        public static string UserGoods {
+            get {
+                return ResourceManager.GetString("UserGoods", resourceCulture);
             }
         }
         

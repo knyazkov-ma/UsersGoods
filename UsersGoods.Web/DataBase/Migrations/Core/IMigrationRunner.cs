@@ -1,4 +1,4 @@
-﻿namespace UsersGoods.Web.DataBase.Migration
+﻿namespace UsersGoods.Web.DataBase.Migrations.Core
 {
     public interface IMigrationRunner
     {

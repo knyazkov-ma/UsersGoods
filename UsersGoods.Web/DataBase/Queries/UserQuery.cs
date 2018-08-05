@@ -1,20 +1,21 @@
 ﻿using Dapper;
 using System.Data;
 using System.Threading.Tasks;
+using UsersGoods.Web.DataBase.Queries.Core;
 using UsersGoods.Web.Services.DTO;
 
-namespace UsersGoods.Web.DataBase.Query.Items
+namespace UsersGoods.Web.DataBase.Queries
 {
-	public class UserQuery : BaseQuery<UserDTO>
+	public class UserQuery : BaseQuery<UserDTO, long>
 	{
-		private readonly long _userId;
-		public UserQuery(IDbConnection connection, long userId): 
+		
+		public UserQuery(IDbConnection connection): 
 			base(connection)
 		{
-			_userId = userId;
+			
 		}
 
-		public override async Task<UserDTO> Get()
+		public override async Task<UserDTO> Get(long userId)
 		{
 			string sql = @"select  u.Id, 
 								   u.FirstName, 
@@ -24,11 +25,7 @@ namespace UsersGoods.Web.DataBase.Query.Items
 							 left join Purchases p on p.UserId = u.Id
                             where u.Id = @userId
                             group by u.Id, u.FirstName, u.SecondName";
-			return await _connection.QueryFirstAsync<UserDTO>(sql,
-					new
-					{
-						userId = _userId
-					});
+			return await _connection.QueryFirstAsync<UserDTO>(sql, new { userId });
 
 		}
 	}

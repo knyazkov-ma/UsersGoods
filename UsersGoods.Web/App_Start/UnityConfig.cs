@@ -1,13 +1,16 @@
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using Unity;
 using Unity.AspNet.Mvc;
 using Unity.Injection;
 using UsersGoods.Web.DataBase;
-using UsersGoods.Web.DataBase.Migration;
-using UsersGoods.Web.DataBase.Query;
+using UsersGoods.Web.DataBase.Migrations.Core;
+using UsersGoods.Web.DataBase.Queries;
+using UsersGoods.Web.DataBase.Queries.Core;
 using UsersGoods.Web.Services;
+using UsersGoods.Web.Services.DTO;
 using UsersGoods.Web.Services.Interface;
 
 namespace UsersGoods.Web
@@ -57,7 +60,14 @@ namespace UsersGoods.Web
 			container.RegisterType<IDbConnection>(new PerRequestLifetimeManager(), 
 				new InjectionFactory(c => DbConnectionFactory.Instatce.GetCurrent(connectionString)));
 
-			container.RegisterType<IQueryFactory, QueryFactory>();
+			container.RegisterType<IQuery<int, GoodsQueryParam>, GoodsCountQuery>();
+			container.RegisterType<IQuery<IEnumerable<GoodDTO>, GoodsQueryParam>, GoodsQuery>();
+			container.RegisterType<IQuery<int, long>, GoodsTotalCountQuery>();
+			container.RegisterType<IQuery<TopGoodDTO>, TopGoodQuery>();
+			container.RegisterType<IQuery<UserDTO, long>, UserQuery>();
+			container.RegisterType<IQuery<int, UsersQueryParam>, UsersCountQuery>();
+			container.RegisterType<IQuery<IEnumerable<UserDTO>, UsersQueryParam>, UsersQuery>();
+			container.RegisterType<IQuery<int>, UsersTotalCountQuery>();
 
 			container.RegisterType<IGoodService, GoodService>();
             container.RegisterType<IUserService, UserService>();

@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics;
 using FluentMigrator.Runner;
 using System;
-using UsersGoods.Web.DataBase.Migration.Items;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace UsersGoods.Web.DataBase.Migration
+namespace UsersGoods.Web.DataBase.Migrations.Core
 {
 	public class MigrationRunner : IMigrationRunner
     {

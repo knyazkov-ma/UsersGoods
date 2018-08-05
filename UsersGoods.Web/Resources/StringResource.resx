@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActionOK" xml:space="preserve">
-    <value>OK</value>
+  <data name="ActionFilter" xml:space="preserve">
+    <value>Отфильтровать</value>
+  </data>
+  <data name="ActionResetFilter" xml:space="preserve">
+    <value>Сбросить фильтр</value>
   </data>
   <data name="ActionSearch" xml:space="preserve">
     <value>Найти</value>
+  </data>
+  <data name="CountRecords" xml:space="preserve">
+    <value>Количество записей</value>
   </data>
   <data name="From" xml:space="preserve">
     <value>от</value>
@@ -144,8 +150,20 @@
   <data name="MenuUsers" xml:space="preserve">
     <value>Пользователи</value>
   </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Записей не найдено</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>из</value>
+  </data>
+  <data name="PositionShort" xml:space="preserve">
+    <value>поз.</value>
+  </data>
   <data name="PurchaseCount" xml:space="preserve">
     <value>Количество покупок</value>
+  </data>
+  <data name="PurchaseTotalAmount" xml:space="preserve">
+    <value>Всего куплено на сумму</value>
   </data>
   <data name="RUB" xml:space="preserve">
     <value>руб.</value>
@@ -155,6 +173,9 @@
   </data>
   <data name="UserCardGoods" xml:space="preserve">
     <value>Покупки пользователя</value>
+  </data>
+  <data name="UserGoods" xml:space="preserve">
+    <value>Товары, купленные пользователем</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Имя</value>

@@ -1,9 +1,10 @@
 ﻿using Dapper;
 using System.Data;
 using System.Threading.Tasks;
+using UsersGoods.Web.DataBase.Queries.Core;
 using UsersGoods.Web.Services.DTO;
 
-namespace UsersGoods.Web.DataBase.Query.Items
+namespace UsersGoods.Web.DataBase.Queries
 {
 	public class TopGoodQuery : BaseQuery<TopGoodDTO>
 	{

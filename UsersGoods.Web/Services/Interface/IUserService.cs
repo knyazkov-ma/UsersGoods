@@ -8,6 +8,8 @@ namespace UsersGoods.Web.Services.Interface
     {
         Task<IEnumerable<UserDTO>> GetUsers(string searchString = null);
 
-        Task<UserDTO> GetUser(long userId);
+		Task<int> GetUsersCount(string searchString = null);
+		Task<int> GetTotalUsersCount();
+		Task<UserDTO> GetUser(long userId);
     }
 }

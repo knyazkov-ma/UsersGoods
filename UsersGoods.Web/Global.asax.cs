@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Unity.ServiceLocation;
-using UsersGoods.Web.DataBase.Migration;
+using UsersGoods.Web.DataBase.Migrations.Core;
 
 namespace UsersGoods.Web
 {

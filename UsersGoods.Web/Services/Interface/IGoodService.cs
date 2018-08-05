@@ -7,6 +7,8 @@ namespace UsersGoods.Web.Services.Interface
     public interface IGoodService
     {
         Task<IEnumerable<GoodDTO>> GetGoods(long userId, decimal? amountMin = null, decimal? amountMax = null);
-        Task<TopGoodDTO> GetTopGood();
+		Task<int> GetGoodsCount(long userId, decimal? amountMin = null, decimal? amountMax = null);
+		Task<int> GetTotalGoodsCount(long userId);
+		Task<TopGoodDTO> GetTopGood();
     }
 }

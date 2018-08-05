@@ -25,38 +25,66 @@
         });
     });
 </script>
+
 <div class="row">
-    <div class="col-md-12">
-        @StringResource.GoodAmountFilter 
-        @StringResource.From<input id="amountMin" type="number" value="@Model.AmountMin">
-        @StringResource.To<input id="amountMax" type="number" value="@Model.AmountMax">
-        <a class="btn btn-default" id="searchButton">@StringResource.ActionOK</a>
-    </div>
+	<div class="col-md-4">
+		<h1>@Model.User.FirstName @Model.User.SecondName</h1>
+	</div>
+	<div class="col-md-8">
+		<h1>@StringResource.PurchaseTotalAmount <b>@Model.User.TotalAmount (@StringResource.RUB)</b></h1>
+	</div>
 </div>
 
 <div class="row">
-    <div class="col-md-6">
-        <div>@Model.User.FirstName @Model.User.SecondName</div>
-    </div>
-    <div class="col-md-6">
-        <div>@Model.User.TotalAmount (@StringResource.RUB)</div>
-    </div>
+	<div class="col-md-12">
+		@StringResource.GoodAmountFilter
+		<input id="amountMin" placeholder="@StringResource.From" type="number" value="@Model.AmountMin">
+		<input id="amountMax" placeholder="@StringResource.To" type="number" value="@Model.AmountMax">
+		<a class="btn btn-default" id="searchButton">@StringResource.ActionFilter</a>
+		@if (Model.IsFiltered)
+		{
+			<a class="btn btn-default" href="@Url.Action("Index", "User", new {id = Model.User.Id })">@StringResource.ActionResetFilter</a>
+		}
+	</div>
 </div>
 
 <div class="row">
+	<div class="col-md-12">
+		<div>@StringResource.UserGoods 
+		(@if (Model.IsFiltered)
+		{
+			<span>@Model.GoodsCount @StringResource.Of @Model.GoodsTotalCount</span>
+		}
+		else
+		{
+			<span>@Model.GoodsTotalCount</span>
+		} @StringResource.PositionShort)
+		</div>
+	</div>
+</div>
+<div class="row">
     <div class="col-md-12">
-        <table>
-            <tr>
-                <th>@StringResource.GoodName</th>
-                <th>@StringResource.GoodAmount (@StringResource.RUB)</th>
-            </tr>
-            @foreach (var good in Model.Goods)
-            {
-                <tr>
-                    <td>@good.Name</td>
-                    <td>@good.Amount</td>
-                </tr>
-            }
-        </table>
+		<table>
+			<tr>
+				<th>@StringResource.GoodName</th>
+				<th>@StringResource.GoodAmount (@StringResource.RUB)</th>
+			</tr>
+			@if (Model.Goods == null || !Model.Goods.Any())
+			{
+				<tr>
+					<td colspan="2">@StringResource.NotFound</td>					
+				</tr>
+			}
+			else
+			{
+				foreach (var good in Model.Goods)
+				{
+					<tr>
+						<td>@good.Name</td>
+						<td>@good.Amount</td>
+					</tr>
+				}
+			}
+		</table>
     </div>
 </div>

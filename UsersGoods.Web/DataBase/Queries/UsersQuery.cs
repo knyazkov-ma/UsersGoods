@@ -3,22 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
+using UsersGoods.Web.DataBase.Queries.Core;
 using UsersGoods.Web.Services.DTO;
 
-namespace UsersGoods.Web.DataBase.Query.Items
+namespace UsersGoods.Web.DataBase.Queries
 {
-	public class UsersQuery: BaseQuery<IEnumerable<UserDTO>>
+	public class UsersQuery: BaseQuery<IEnumerable<UserDTO>, UsersQueryParam>
 	{
-		private readonly string _part1;
-		private readonly string _part2;
-		public UsersQuery(IDbConnection connection, string part1, string part2): 
+		
+		public UsersQuery(IDbConnection connection): 
 			base(connection)
 		{
-			_part1 = part1;
-			_part2 = part2;
+			
 		}
 
-		public override async Task<IEnumerable<UserDTO>> Get()
+		public override async Task<IEnumerable<UserDTO>> Get(UsersQueryParam param)
 		{
 			string sql = @"select  u.Id, 
 								   u.FirstName, 
@@ -31,25 +30,25 @@ namespace UsersGoods.Web.DataBase.Query.Items
 							order by TotalAmount desc";
 
 			string where = null;
-			if (!String.IsNullOrWhiteSpace(_part1) && !String.IsNullOrWhiteSpace(_part2))
+			if (!String.IsNullOrWhiteSpace(param.Part1) && !String.IsNullOrWhiteSpace(param.Part2))
 			{
 				where = "where upper(u.FirstName) like @part1 and upper(u.SecondName) like @part2";
 				sql = String.Format(sql, where);
 				return await _connection.QueryAsync<UserDTO>(sql,
 					new
 					{
-						part1 = _part1.ToUpperInvariant(),
-						part2 = _part2.ToUpperInvariant()
+						part1 = param.Part1.ToUpperInvariant(),
+						part2 = param.Part2.ToUpperInvariant()
 					});
 			}
-			else if (!String.IsNullOrWhiteSpace(_part1))
+			else if (!String.IsNullOrWhiteSpace(param.Part1))
 			{
 				where = "where upper(u.FirstName) like @part1 or upper(u.SecondName) like @part1";
 				sql = String.Format(sql, where);
 				return await _connection.QueryAsync<UserDTO>(sql,
 					new
 					{
-						part1 = _part1.ToUpperInvariant()
+						part1 = param.Part1.ToUpperInvariant()
 					});
 			}
 			else

@@ -22,7 +22,9 @@ namespace UsersGoods.Web.Controllers
 			var model = new IndexViewModel
 			{
 				SearchString = search,
-				Items = list
+				Items = list,
+				ItemsCount = await _userService.GetUsersCount(search),
+				ItemsTotalCount = await _userService.GetTotalUsersCount()
 			};
 			return model;
 		}
@@ -30,12 +32,7 @@ namespace UsersGoods.Web.Controllers
 		public async Task<ActionResult> Index(string search = null)
         {
             return View(await getModel(search));
-        }
-
-		public async Task<ActionResult> Reset()
-		{
-			return View(await getModel());
-		}
+        }		
 		
     }
 }

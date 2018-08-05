@@ -24,8 +24,10 @@ namespace UsersGoods.Web.Controllers
                 User = Mapper.Map<UserViewModel>(await _userService.GetUser(id)),
                 Goods = Mapper.Map<IEnumerable<GoodViewModel>>(await _goodService.GetGoods(id, amountMin, amountMax)),
                 AmountMax = amountMax,
-                AmountMin = amountMin
-            };
+                AmountMin = amountMin,
+				GoodsCount = await _goodService.GetGoodsCount(id, amountMin, amountMax),
+				GoodsTotalCount = await _goodService.GetTotalGoodsCount(id)
+			};
             return View(model);
         }
     }
