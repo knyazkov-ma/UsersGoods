@@ -24,8 +24,8 @@ namespace UsersGoods.Web
             });
             Mapper.AssertConfigurationIsValid();
 
-			UnityServiceLocator serviceLocator = new UnityServiceLocator(UnityConfig.Container);
-			IMigrationRunner migrationRunner = serviceLocator.GetInstance<IMigrationRunner>();
+			var serviceLocator = new UnityServiceLocator(UnityConfig.Container);
+			var migrationRunner = serviceLocator.GetInstance<IMigrationRunner>();
 			migrationRunner.Update();
 		}
     }
