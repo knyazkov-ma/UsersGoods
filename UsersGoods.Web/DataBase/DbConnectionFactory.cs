@@ -8,8 +8,8 @@ namespace UsersGoods.Web.DataBase
 	public class DbConnectionFactory
 	{
 		private const string DATABASE_CONTEXT_KEY = "UsersGoods.Context.Database";
-		
-		#region Unity Container
+
+		#region DbConnectionFactory
 		private static Lazy<DbConnectionFactory> instance =
 		  new Lazy<DbConnectionFactory>(() =>
 		  {
